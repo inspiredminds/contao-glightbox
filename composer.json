@@ -1,0 +1,41 @@
+{
+    "name": "inspiredminds/contao-glightbox",
+    "description": "Contao extension to integrate GLightbox.",
+    "type": "contao-bundle",
+    "license": "LGPL-3.0-or-later",
+    "homepage": "https://github.com/inspiredminds/contao-glightbox",
+    "authors": [
+        {
+            "name": "Fritz Michael Gschwantner",
+            "email": "fmg@inspiredminds.at",
+            "role": "Developer"
+        }
+    ],
+	"support": {
+		"issues": "https://github.com/inspiredminds/contao-glightbox/issues",
+		"source": "https://github.com/inspiredminds/contao-glightbox",
+		"forum": "https://community.contao.org/de"
+	},
+	"funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/fritzmg"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "contao/core-bundle": "^4.9",
+        "symfony/http-kernel": "^4.4 || ^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "InspiredMinds\\ContaoGLightbox\\": "src/"
+        }
+    },
+    "extra": {
+        "contao-manager-plugin": "InspiredMinds\\ContaoGLightbox\\ContaoManager\\Plugin"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16"
+    }
+}

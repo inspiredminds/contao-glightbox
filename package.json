@@ -1,0 +1,10 @@
+{
+  "name": "contao-glightbox",
+  "version": "1.0.0",
+  "dependencies": {
+    "glightbox": "^3.1.0"
+  },
+  "scripts": {
+    "postinstall": "cp -r node_modules/glightbox/dist/* public/"
+  }
+}

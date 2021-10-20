@@ -1,0 +1,16 @@
+<?php
+
+use Contao\Template;
+
+$GLOBALS['TL_CSS']['glightbox'] = 'bundles/contaoglightbox/css/glightbox.min.css|static';
+echo Template::generateScriptTag('bundles/contaoglightbox/js/glightbox.min.js', false, null);
+
+?>
+<script>
+(function(){
+  'use strict';
+  GLightbox({
+    selector: 'a[data-lightbox]'
+  });
+})();
+</script>
