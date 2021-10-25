@@ -9,6 +9,11 @@ echo Template::generateScriptTag('bundles/contaoglightbox/js/glightbox.min.js', 
 <script>
 (function(){
   'use strict';
+  document.querySelectorAll('a[data-lightbox]').forEach((element) => {
+    if (!!element.dataset.lightbox) {
+      element.setAttribute('data-gallery', element.dataset.lightbox);
+    }
+  });
   GLightbox({
     selector: 'a[data-lightbox]'
   });
