@@ -1,5 +1,5 @@
 {
-    "name": "inspiredminds/contao-glightbox",
+    "name": "heimseiten/contao-glightbox",
     "description": "Contao extension to integrate GLightbox.",
     "type": "contao-bundle",
     "license": "LGPL-3.0-or-later",
@@ -24,7 +24,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "contao/core-bundle": "^4.9",
+        "contao/core-bundle": "^4.9 | ^5.0",
         "symfony/http-kernel": "^4.4 || ^5.1"
     },
     "autoload": {
