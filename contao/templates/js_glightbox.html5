@@ -12,6 +12,8 @@ echo Template::generateScriptTag('bundles/contaoglightbox/js/glightbox.min.js', 
   document.querySelectorAll('a[data-lightbox]').forEach((element) => {
     if (!!element.dataset.lightbox) {
       element.setAttribute('data-gallery', element.dataset.lightbox);
+    } else {
+      element.setAttribute('data-gallery', crypto.randomUUID());
     }
   });
   GLightbox({
