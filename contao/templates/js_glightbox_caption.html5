@@ -1,0 +1,25 @@
+<?php
+
+use Contao\Template;
+
+$GLOBALS['TL_CSS']['glightbox'] = 'bundles/contaoglightbox/css/glightbox.min.css|static';
+echo Template::generateScriptTag('bundles/contaoglightbox/js/glightbox.min.js', false, null);
+
+?>
+<script>
+(function(){
+  'use strict';
+  document.querySelectorAll('a[data-lightbox]').forEach((element) => {
+    if (!!element.dataset.lightbox) {
+      element.setAttribute('data-gallery', element.dataset.lightbox);
+      const caption = element.nextElementSibling;
+      if (!!caption) {
+        element.setAttribute('data-glightbox', 'title: '+caption.textContent);
+      }
+    }
+  });
+  GLightbox({
+    selector: 'a[data-lightbox]'
+  });
+})();
+</script>
