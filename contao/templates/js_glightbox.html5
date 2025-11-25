@@ -9,15 +9,37 @@ echo Template::generateScriptTag('bundles/contaoglightbox/js/glightbox.min.js', 
 <script>
 (function(){
   'use strict';
-  document.querySelectorAll('a[data-lightbox]').forEach((element) => {
-    if (!!element.dataset.lightbox) {
-      element.setAttribute('data-gallery', element.dataset.lightbox);
-    } else {
-      element.setAttribute('data-gallery', crypto.randomUUID());
-    }
-  });
-  GLightbox({
-    selector: 'a[data-lightbox]'
-  });
+
+  function initGLightbox() {
+    document.querySelectorAll('a[data-lightbox]').forEach((element) => {
+      if (!!element.dataset.lightbox) {
+        element.setAttribute('data-gallery', element.dataset.lightbox);
+      } else {
+        element.setAttribute('data-gallery', crypto.randomUUID());
+      }
+    });
+    GLightbox({
+      selector: 'a[data-lightbox]'
+    });
+  }
+
+  // Prüfe ob data-list-random Elemente existieren
+  const randomLists = document.querySelectorAll('*[data-list-random]');
+
+  if (randomLists.length === 0) {
+    // Keine data-list-random Elemente, direkt initialisieren
+    initGLightbox();
+  } else {
+    // Warte bis alle data-list-random Elemente "ready" sind
+    const checkReady = () => {
+      const allReady = Array.from(randomLists).every(list => list.dataset.listRandom === 'ready');
+      if (allReady) {
+        initGLightbox();
+      } else {
+        requestAnimationFrame(checkReady);
+      }
+    };
+    checkReady();
+  }
 })();
 </script>
