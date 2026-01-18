@@ -13,7 +13,7 @@ echo Template::generateScriptTag('bundles/contaoglightbox/js/glightbox.min.js', 
     if (!!element.dataset.lightbox) {
       element.setAttribute('data-gallery', element.dataset.lightbox);
     } else {
-      element.setAttribute('data-gallery', crypto.randomUUID());
+      element.setAttribute('data-gallery', (Math.random() + 1).toString(36).substring(7));
     }
   });
   GLightbox({
