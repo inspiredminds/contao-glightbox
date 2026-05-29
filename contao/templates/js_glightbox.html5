@@ -1,6 +1,6 @@
 <?php $GLOBALS['TL_CSS']['glightbox'] = 'bundles/contaoglightbox/css/glightbox.min.css|static'; ?>
 <script src="<?= $this->asset('js/glightbox.min.js', 'contao_g_lightbox') ?>"></script>
-<script>
+<script<?= $this->attrs()->setIfExists('nonce', $this->nonce('script-src')) ?>>
 (function(){
   'use strict';
   document.querySelectorAll('a[data-lightbox]').forEach((element) => {
