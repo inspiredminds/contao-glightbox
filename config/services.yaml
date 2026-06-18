@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    InspiredMinds\ContaoGLightbox\EventListener\AddGLightboxAssetsListener:
+        arguments:
+            - '@contao.framework'
+        tags:
+            # LayoutEvent only exists in modern Contao; register via string so the
+            # class is never resolved where it is missing.
+            - { name: kernel.event_listener, event: 'Contao\CoreBundle\Event\LayoutEvent', method: onLayout }
